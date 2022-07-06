@@ -3,7 +3,7 @@ import { UserRepository } from "../../../domain/repositories/user-repository";
 
 export class InMemoryUserRepository implements UserRepository {
 
-    private readonly userData: User[] = []
+    private userData: User[] = []
 
     async getAll(): Promise<User[]> {
         return this.userData;
@@ -24,6 +24,7 @@ export class InMemoryUserRepository implements UserRepository {
     }
 
     async update(user: User): Promise<User> {
+        this.userData = this.userData.map((u) => u.id === user.id ? user : u);
         return user
     }
 
