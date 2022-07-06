@@ -1,7 +1,7 @@
-import { UserRepository } from 'domain/repositories/user-repository'
-import { User } from 'domain/entities/user';
-import { UserExistsByUsername } from 'domain/services/user-username-exists';
-import { UserExistsException } from 'domain/exceptions/user-exists';
+import { UserRepository } from '../../domain/repositories/user-repository'
+import { User } from '../../domain/entities/user';
+import { UserExistsByUsername } from '../../domain/services/user-username-exists';
+import { UserExistsException } from '../../domain/exceptions/user-exists';
 
 export class UserCreateCase {
     private readonly _userRepository: UserRepository;
