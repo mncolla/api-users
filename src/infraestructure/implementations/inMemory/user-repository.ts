@@ -3,7 +3,7 @@ import { UserRepository } from "../../../domain/repositories/user-repository";
 
 export class InMemoryUserRepository implements UserRepository {
 
-    readonly userData: User[] = []
+    private readonly userData: User[] = []
 
     async getAll(): Promise<User[]> {
         return this.userData;

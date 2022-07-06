@@ -1,6 +1,7 @@
 import { User } from "../../../domain/entities/user";
 import { UserCreateCase } from "../../../application/usecases/create-user";
 import { InMemoryUserRepository } from "../../implementations/inMemory/user-repository";
+import { UsersGetCase } from "../../../application/usecases/get-users";
 
 (async () => {
     const userInMemoryRepository = new InMemoryUserRepository()
@@ -13,5 +14,8 @@ import { InMemoryUserRepository } from "../../implementations/inMemory/user-repo
     }
 
     await userCreateCase.run(user)
-    console.log(userInMemoryRepository.userData)
+
+    const userGetterCase = new UsersGetCase(userInMemoryRepository)
+    const users = await userGetterCase.run()
+    console.log(users)
 })()
