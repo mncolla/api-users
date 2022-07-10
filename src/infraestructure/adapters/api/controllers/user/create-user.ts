@@ -6,19 +6,20 @@ import { User } from "../../../../../domain/entities/user";
 
 export const createUserController = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const {
+        name,
         username,
-        age,
-        name
+        email,
+        password
     } = req.body
 
     const sqlRepository = new SqlUserRepository()
     const createCase = new UserCreateCase(sqlRepository)
 
     const newUser: User = {
-        id: uuid(),
-        name: name,
-        username: username,
-        age: age
+        name,
+        username,
+        email,
+        password
     }
 
     try {

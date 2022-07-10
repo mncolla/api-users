@@ -41,9 +41,20 @@ export class SqlUserRepository implements UserRepository {
         await repository.delete(id);
     }
 
-    async getById(id: string): Promise<User | null> {
+    async getById(id: number): Promise<User | null> {
         const repository = AppDataSource.getRepository(UserModel)
-        const user = await repository.findOneBy({ id: id as string });
+        const user = await repository.findOneBy({ id: id as number });
+
+        if (!user) {
+            throw new Error("User does not exist");
+        }
+
+        return user
+    }
+
+    async getByEmail(email: string): Promise<User | null> {
+        const repository = AppDataSource.getRepository(UserModel)
+        const user = await repository.findOneBy({ email: email as string });
 
         if (!user) {
             throw new Error("User does not exist");

@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
 export class User {
 
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id: number;
 
     @Column({ type: 'varchar', length: 100 })
     name: string;
@@ -12,6 +12,9 @@ export class User {
     @Column({ type: 'varchar', length: 100 })
     username: string;
 
-    @Column({ type: 'int' })
-    age: number;
+    @Column({ type: 'varchar', length: 100 })
+    email: string;
+
+    @Column({ type: 'varchar', length: 100 })
+    password: string;
 }
