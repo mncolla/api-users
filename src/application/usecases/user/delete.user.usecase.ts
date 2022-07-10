@@ -1,4 +1,4 @@
-import { UserRepository } from '../../domain/repositories/user-repository'
+import { UserRepository } from '../../../domain/repositories/user.repository'
 
 export class UserDeleteCase {
     private readonly _userRepository: UserRepository;
@@ -7,7 +7,7 @@ export class UserDeleteCase {
         this._userRepository = userRepository;
     }
 
-    async run(id: string): Promise<void> {
+    async run(id: number): Promise<void> {
         this._userRepository.delete(id)
     }
 }

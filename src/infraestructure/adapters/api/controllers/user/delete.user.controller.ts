@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
-import { SqlUserRepository } from '../../../../implementations/sql/sql-user-repository'
-import { UserDeleteCase } from "../../../../../application/usecases/delete-user";
-import { User } from "../../../../../domain/entities/user";
+import { SqlUserRepository } from '../../../../implementations/mysql/mysql.user.repository'
+import { UserDeleteCase } from "../../../../../application/usecases/user/delete.user.usecase";
+import { User } from "../../../../../domain/entities/user.entity";
 
 export const deleteUserController = async (req: Request, res: Response, _next: NextFunction): Promise<User> => {
     const sqlRepository = new SqlUserRepository()

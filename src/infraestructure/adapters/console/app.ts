@@ -1,5 +1,5 @@
-import { User } from "../../../domain/entities/user";
-import { UserCreateCase } from "../../../application/usecases/create-user";
+/* import { User } from "../../../domain/entities/user";
+import { UserCreateCase } from "../../../application/usecases/create.user.usecase";
 import { UsersGetCase } from "../../../application/usecases/get-users";
 import { UserUpdateCase } from "../../../application/usecases/update-user";
 import { InMemoryUserRepository } from "../../implementations/inMemory/user-repository";
@@ -41,4 +41,4 @@ import { SqlUserRepository } from '../../implementations/sql/sql-user-repository
 
     console.log(users)
 
-})()
+})() */

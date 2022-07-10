@@ -1,7 +1,7 @@
-import { User as UserModel } from "../../drivers/sql/models/user";
-import { User } from "../../../domain/entities/user";
-import { UserRepository } from "../../../domain/repositories/user-repository";
-import { AppDataSource } from '../../drivers/sql/database';
+import { User as UserModel } from "../../drivers/mysql/entities/user.entity.db";
+import { User } from "../../../domain/entities/user.entity";
+import { UserRepository } from "../../../domain/repositories/user.repository";
+import { AppDataSource } from '../../drivers/mysql/database.config';
 
 
 export class SqlUserRepository implements UserRepository {
@@ -36,7 +36,7 @@ export class SqlUserRepository implements UserRepository {
         return user
     }
 
-    async delete(id: string): Promise<void> {
+    async delete(id: number): Promise<void> {
         const repository = AppDataSource.getRepository(UserModel)
         await repository.delete(id);
     }

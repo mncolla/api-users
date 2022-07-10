@@ -1,5 +1,5 @@
-import { User } from "../../../domain/entities/user";
-import { UserRepository } from "../../../domain/repositories/user-repository";
+/* import { User } from "../../../domain/entities/user.entity";
+import { UserRepository } from "../../../domain/repositories/user.repository";
 
 export class InMemoryUserRepository implements UserRepository {
 
@@ -36,4 +36,4 @@ export class InMemoryUserRepository implements UserRepository {
         return null
     }
 
-}
+} */

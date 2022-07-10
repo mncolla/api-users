@@ -3,17 +3,22 @@ services:
   db:
     image: mysql:5.7
     environment:
-      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
     ports:
       - '3306:3306'
     volumes:
       - dbdata:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "db" ]
+      timeout: 5s
+      retries: 1
     networks:
       frx:
   users:
     container_name: users
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -29,7 +34,6 @@ services:
       frx:
     links:
       - db:db
-
 networks:
   frx:
     external: true

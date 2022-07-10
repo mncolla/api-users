@@ -1,5 +1,5 @@
-import { UserRepository } from '../../domain/repositories/user-repository'
-import { User } from '../../domain/entities/user';
+import { UserRepository } from '../../../domain/repositories/user.repository'
+import { User } from '../../../domain/entities/user.entity';
 
 export class UserUpdateCase {
     private readonly _userRepository: UserRepository;

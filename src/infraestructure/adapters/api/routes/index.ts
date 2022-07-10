@@ -1,6 +1,6 @@
-import { UserExistsException } from '../../../../domain/exceptions/user-exists';
+import { UserExistsException } from '../../../../domain/exceptions/user.exists.exception';
 import { NextFunction, Request, Router, Response } from 'express';
-import userRoutes from './user-routes';
+import userRoutes from './user.routes';
 
 const route = Router()
 

@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { v4 as uuid } from 'uuid'
-import { SqlUserRepository } from '../../../../implementations/sql/sql-user-repository'
-import { UserUpdateCase } from '../../../../../application/usecases/update-user'
-import { User } from "../../../../../domain/entities/user";
+import { SqlUserRepository } from '../../../../implementations/mysql/mysql.user.repository'
+import { UserUpdateCase } from '../../../../../application/usecases/user/update.user.usecase'
+import { User } from "../../../../../domain/entities/user.entity";
 
 export const updateUserController = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const user = req.body

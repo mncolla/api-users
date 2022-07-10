@@ -1,11 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import { v4 as uuid } from 'uuid'
-import { SqlUserRepository } from '../../../../implementations/sql/sql-user-repository'
-import { UserCreateCase } from "../../../../../application/usecases/create-user";
-import { User } from "../../../../../domain/entities/user";
+import { SqlUserRepository } from '../../../../implementations/mysql/mysql.user.repository'
+import { UserCreateCase } from "../../../../../application/usecases/user/create.user.usecase";
+import { User } from "../../../../../domain/entities/user.entity";
 
 export const createUserController = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const {
+        id,
         name,
         username,
         email,
@@ -16,6 +17,7 @@ export const createUserController = async (req: Request, res: Response, next: Ne
     const createCase = new UserCreateCase(sqlRepository)
 
     const newUser: User = {
+        id,
         name,
         username,
         email,
