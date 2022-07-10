@@ -1,6 +1,7 @@
 import express from 'express';
 import * as http from 'http';
 import routes from './routes';
+import "reflect-metadata"
 
 export class Server {
     private readonly port: string;
